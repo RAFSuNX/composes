@@ -3,22 +3,20 @@ version: "3.8"
 services:
   samba:
     image: dockurr/samba:latest
-    hostname: samba 
+    hostname: samba
     user: "0:0"
     environment:
-      NAME: "Home"  
-      USER: "whatisthis"  
-      PASS: "whatsoever##"  
+      NAME: "Home"
+      USER: "whatisthis"
+      PASS: "whatsoever##"  # Ensure the password is secure
     # ports:
-    #   - "445:445"  
+    #   - "445:445"
     volumes:
-      - /home/ubuntu:/storage 
+      - /home/ubuntu:/storage
     networks:
-      cloudflared:
-        aliases:
-          - samba  
-    restart: on-failure  
+      - cloudflared
+    restart: on-failure
 
 networks:
   cloudflared:
-    external: true  
+    external: true
