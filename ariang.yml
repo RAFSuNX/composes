@@ -17,13 +17,11 @@ services:
       - ARIA2_USER=*************
       - ARIA2_PWD=**************
     networks:
-      cloudflared:
-        aliases:
-          - ariang
+      - cloudflared
     restart: on-failure
     # ports:
-    #   - "443:443"  
+    #   - "443:443"
 
 networks:
   cloudflared:
-    external: true  
+    external: true
