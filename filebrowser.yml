@@ -13,11 +13,9 @@ services:
       # - /drive:/srv/Drive  
       - filebrowser_config:/data  
     networks:
-      cloudflared:
-        aliases:
-          - filebrowser
+      - cloudflared
     restart: on-failure
-    entrypoint: >
+    entrypoint: |
       /bin/sh -c '
         if [ ! -e /data/database.db ]; then
           if [ ! -e /database.db ]; then
@@ -51,9 +49,10 @@ services:
       '
     # ports:
     #   - "80:80"  
+
 networks:
   cloudflared:
     external: true  
 
 volumes:
-  filebrowser_config:  
+  filebrowser_config:
