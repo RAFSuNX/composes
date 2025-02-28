@@ -11,7 +11,9 @@ services:
       - VNC_PASSWORD=shit####  # Ensure to change the password to something more secure
       - TZ=Asia/Dhaka
     networks:
-      - cloudflared
+      cloudflared:
+        aliases:
+          - firefox
     restart: on-failure
 
 volumes:
