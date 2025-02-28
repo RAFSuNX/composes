@@ -13,7 +13,9 @@ services:
       # - /drive:/srv/Drive  
       - filebrowser_config:/data  
     networks:
-      - cloudflared
+      cloudflared:
+        aliases:
+          - filebrowser
     restart: on-failure
     entrypoint: |
       /bin/sh -c '
