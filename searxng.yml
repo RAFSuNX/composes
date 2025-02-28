@@ -3,9 +3,12 @@ version: "3.8"
 services:
   searxng:
     hostname: searxng
+    container_name: searxng
     image: docker.io/searxng/searxng:latest
     networks:
-      - cloudflared
+      cloudflared:
+        aliases:
+          - searxng
     volumes:
       - searxng_data:/etc/searxng
     environment:
