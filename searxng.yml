@@ -5,9 +5,7 @@ services:
     hostname: searxng
     image: docker.io/searxng/searxng:latest
     networks:
-      cloudflared:
-        aliases:
-          - searxng
+      - cloudflared
     volumes:
       - searxng_data:/etc/searxng
     environment:
@@ -23,9 +21,9 @@ services:
       options:
         max-size: "1m"
         max-file: "1"
-    restart: on-failure  
+    restart: on-failure
     # ports:
-    #   - "8080:8080"  
+    #   - "8080:8080"
 
 volumes:
   searxng_data:
