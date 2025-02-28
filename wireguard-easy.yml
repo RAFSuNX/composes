@@ -25,7 +25,9 @@ services:
       - 'net.ipv4.ip_forward=1'
     restart: unless-stopped
     networks:
-      - cloudflared
+      cloudflared:
+        aliases:
+          - wg-easy
     privileged: true  # Required for some network operations in WireGuard
 
 networks:
