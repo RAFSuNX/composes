@@ -8,12 +8,10 @@ services:
       - firefox_data:/config:rw
     environment:
       - VNC_LISTENING_PORT=5900
-      - VNC_PASSWORD=shit####
+      - VNC_PASSWORD=shit####  # Ensure to change the password to something more secure
       - TZ=Asia/Dhaka
     networks:
-      cloudflared:
-        aliases:
-          - firefox
+      - cloudflared
     restart: on-failure
 
 volumes:
