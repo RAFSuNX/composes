@@ -5,18 +5,17 @@ services:
     hostname: transfersh
     image: dutchcoders/transfer.sh:latest
     # ports:
-    #   - "8080:8080"  
-    restart: on-failure  
+    #   - "8080:8080"
+    restart: on-failure
     networks:
-      cloudflared:
-        aliases:
-          - transfersh
+      - cloudflared
     volumes:
       - transfer_data:/tmp/
     command: --provider local --basedir /tmp/
 
 networks:
   cloudflared:
-    external: true  
+    external: true
+
 volumes:
-  transfer_data:  
+  transfer_data:
