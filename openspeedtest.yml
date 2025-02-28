@@ -3,12 +3,14 @@ version: "3.8"
 services:
   speedtest:
     image: openspeedtest/latest
-    hostname: speedtest 
+    hostname: speedtest
     networks:
-      - cloudflared
+      cloudflared:
+        aliases:
+          - speedtest
     restart: on-failure  
     # ports:
-    #   - "3000:3000"  
+    #   - "3000:3000"
 
 networks:
   cloudflared:
