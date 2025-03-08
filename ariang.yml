@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  ariang:
+    hostname: ariang
+    image: wahyd4/aria2-ui:6.0.1
+    environment:
+      - PGID=0
+      - PUID=0
+      - ENABLE_AUTH=true
+      - RPC_SECRET=************
+      - ARIA2_USER=************
+      - ARIA2_PWD=************      
+      - ARIA2_EXTERNAL_PORT=443
+      - ARIA2_SSL=false
+      - ENABLE_FILEBROWSER=false
+      - ENABLE_RCLONE=false
+      - CADDY_LOG_LEVEL=ERROR
+    volumes:
+      - /home/ubuntu/Downloads:/data
+    networks:
+      cloudflared:
+        aliases:
+          - ariang
+    restart: on-failure
+    # ports:
+    #   - "80:80"
+    #   - "443:443"
+
+networks:
+  cloudflared:
+    external: true

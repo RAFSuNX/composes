@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  searxng:
+    hostname: searxng
+    container_name: searxng
+    image: docker.io/searxng/searxng:latest
+    networks:
+      cloudflared:
+        aliases:
+          - searxng
+    volumes:
+      - searxng_data:/etc/searxng
+    environment:
+      - SEARXNG_BASE_URL=https://searxng.rxr.pp.ua/
+    cap_drop:
+      - ALL
+    cap_add:
+      - CHOWN
+      - SETGID
+      - SETUID
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "1"
+    restart: on-failure
+    # ports:
+    #   - "8080:8080"
+
+volumes:
+  searxng_data:
+
+networks:
+  cloudflared:
+    external: true

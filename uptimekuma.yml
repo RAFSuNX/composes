@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  uptimekuma:
+    hostname: uptimekuma
+    container_name: uptimekuma
+    image: louislam/uptime-kuma:latest
+    environment:
+      - TZ=Asia/Dhaka  # Adjust to your timezone
+    volumes:
+      - uptimekuma_data:/app/data
+    # ports:
+    #   - "3001:3001"  # Uncomment if you want to expose this port
+    restart: unless-stopped
+    networks:
+      cloudflared:
+        aliases:
+          - uptimekuma
+    privileged: true  # Required for certain network operations in Uptime Kuma
+
+networks:
+  cloudflared:
+    external: true
+
+volumes:
+  uptimekuma_data:
+    driver: local

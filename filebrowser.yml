@@ -1,0 +1,60 @@
+version: "3.8"
+
+services:
+  filebrowser:
+    hostname: filebrowser
+    image: filebrowser/filebrowser
+    user: "0:0"  # Use root privileges
+    environment:
+      - PUID=0  
+      - PGID=0  
+    entrypoint: |
+      /bin/sh -c '
+        if [ ! -e /data/database.db ]; then
+          if [ ! -e /database.db ]; then
+            /filebrowser & 
+            FB_PID=$!
+            sleep 10
+            if [ -n "$FB_PID" ]; then
+              kill -s SIGTERM $FB_PID
+            else
+              echo "Error: /filebrowser failed to start."
+            fi
+          fi &&
+          mv /database.db /data/database.db
+        fi &&
+        if [ ! -L /database.db ]; then
+          if [ -e /database.db ]; then
+            rm /database.db
+          fi &&
+          ln -s /data/database.db /database.db
+        fi &&
+        if [ ! -e /data/.filebrowser.json ]; then
+          mv /.filebrowser.json /data/.filebrowser.json
+        fi &&
+        if [ ! -L /.filebrowser.json ]; then
+          if [ -e .filebrowser.json ]; then
+            rm .filebrowser.json
+          fi &&
+          ln -s /data/.filebrowser.json /.filebrowser.json
+        fi &&
+        exec /filebrowser
+      '
+    volumes:
+      - /home/ubuntu/:/srv/Home
+      # - /drive:/srv/Drive  
+      - filebrowser_config:/data  
+    networks:
+      cloudflared:
+        aliases:
+          - filebrowser
+    restart: on-failure
+    # ports:
+    #   - "80:80"
+
+volumes:
+  filebrowser_config:
+
+networks:
+  cloudflared:
+    external: true

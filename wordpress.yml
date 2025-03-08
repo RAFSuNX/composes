@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  db:
+    hostname: db
+    image: mysql:8.0
+    volumes:
+      - /home/ubuntu/Portainer/wordpress/db:/var/lib/mysql  # Local directory for MySQL data
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: therootpass
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    networks:
+      cloudflared:
+        aliases:
+          - db
+
+  wordpress:
+    hostname: wordpress
+    image: wordpress:latest
+    # ports:
+    #   - "80:80"  # Uncomment if you want to expose the WordPress site to the host
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+    volumes:
+      - /home/ubuntu/Portainer/wordpress/wordpress:/var/www/html  # Local directory for WordPress data
+    networks:
+      cloudflared:
+        aliases:
+          - wordpress
+
+networks:
+  cloudflared:
+    external: true

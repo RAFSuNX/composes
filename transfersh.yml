@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  transfer:
+    hostname: transfersh
+    image: dutchcoders/transfer.sh:latest
+    # ports:
+    #   - "8080:8080"
+    restart: on-failure
+    networks:
+      - cloudflared
+    volumes:
+      - transfer_data:/tmp/
+    command: --provider local --basedir /tmp/
+
+networks:
+  cloudflared:
+    external: true
+
+volumes:
+  transfer_data:

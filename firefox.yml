@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  firefox:
+    hostname: firefox
+    image: jlesage/firefox:latest
+    environment:
+      - VNC_LISTENING_PORT=5900
+      - VNC_PASSWORD=shit####  # Ensure to change the password to something more secure
+      - TZ=Asia/Dhaka
+    volumes:
+      - firefox_data:/config:rw
+    networks:
+      cloudflared:
+        aliases:
+          - firefox
+    restart: on-failure
+    # ports:
+    #   - "5900:5900"
+
+volumes:
+  firefox_data:
+
+networks:
+  cloudflared:
+    external: true
