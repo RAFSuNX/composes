@@ -1,18 +1,16 @@
-version: "3.8"
-
 services:
   filebrowser:
     hostname: filebrowser
     image: filebrowser/filebrowser
     user: "0:0"  # Use root privileges
     environment:
-      - PUID=0  
-      - PGID=0  
+      - PUID=0
+      - PGID=0
     entrypoint: |
       /bin/sh -c '
         if [ ! -e /data/database.db ]; then
           if [ ! -e /database.db ]; then
-            /filebrowser & 
+            /filebrowser &
             FB_PID=$!
             sleep 10
             if [ -n "$FB_PID" ]; then
@@ -42,8 +40,8 @@ services:
       '
     volumes:
       - /home/ubuntu/:/srv/Home
-      # - /drive:/srv/Drive  
-      - filebrowser_config:/data  
+      # - /drive:/srv/Drive
+      - filebrowser_config:/data
     networks:
       cloudflared:
         aliases:
