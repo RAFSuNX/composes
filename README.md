@@ -30,3 +30,50 @@ networks:
     external: true
 
 ```
+
+
+
+
+
+
+.env.example
+
+```
+
+# General Settings
+TZ=
+USER=
+PASSWORD=
+PUID=0 # root puid
+PGID=0 # root pgid
+UPUID= # user puid
+UPGID= # user pgid
+HOME_DIR=
+
+# Web Config
+SEARXNG_BASE_URL= ## url with http/https
+
+# Samba Config
+SAMBA_USER=
+
+# WireGuard Config
+WG_HOST= # host ip/url
+WG_PASSWORD_HASH= # password bcrypt hash with extra  before all $, normal is $2y$10$XT........, you need to use $$2y$$10$$XT........., as per wg-easy doc
+
+# Database Config
+MYSQL_ROOT_PASSWORD=
+MYSQL_DATABASE=
+MYSQL_USER=
+MYSQL_PASSWORD=
+
+# WordPress Config
+WORDPRESS_DB_USER=
+WORDPRESS_DB_PASSWORD=
+
+# Cloudflared Config
+CLOUDFLARED_TOKEN=
+
+```
+
+
+
