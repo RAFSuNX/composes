@@ -3,11 +3,12 @@ services:
     image: rclone/rclone:latest
     hostname: rclone
     command: sync /data docker_backup:/docker_backup --progress --links
+    environment:
+      - PGID=${PGID}
+      - PUID=${PUID}
     volumes:
       - ${HOME_DIR}/docker:/data
       - ${HOME_DIR}/.config/rclone:/config/rclone
-      - PGID=${PGID}
-      - PUID=${PUID}
     networks:
       cloudflared:
         aliases:
