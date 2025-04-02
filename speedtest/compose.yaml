@@ -1,0 +1,16 @@
+services:
+  speedtest:
+    hostname: speedtest
+    image: openspeedtest/latest
+    networks:
+      cloudflared:
+        aliases:
+          - speedtest
+    restart: on-failure
+    # ports:
+    #   - "3000:3000"
+    #   - "3001:3001"
+
+networks:
+  cloudflared:
+    external: true
