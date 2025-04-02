@@ -18,8 +18,7 @@ services:
       - ${HOME_DIR}/Downloads:/data
     networks:
       cloudflared:
-        aliases:
-          - ariang
+        ipv4_address: 10.7.0.200
     restart: on-failure
     # ports:
     #   - "80:80"
