@@ -3,8 +3,8 @@ services:
     hostname: filebrowser
     image: filebrowser/filebrowser:latest
     environment:
-      - PUID=1001
-      - PGID=1001
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=${TZ}
     volumes:
       - ${HOME_DIR}:/srv
