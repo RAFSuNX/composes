@@ -6,6 +6,9 @@ services:
       - VNC_LISTENING_PORT=5900
       - VNC_PASSWORD=${PASSWORD}
       - TZ=${TZ}
+      - DARK_MODE=1
+      - WEB_AUDIO=1
+      - LANG=en_US.UTF-8
     volumes:
       - firefox_data:/config:rw
     networks:
