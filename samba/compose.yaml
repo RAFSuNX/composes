@@ -6,7 +6,7 @@ services:
     environment:
       - GID=${PGID}
       - NAME=Home
-      - USER=${USER}
+      - USER=${SAMBA_USER}
       - PASS=${PASSWORD}  # Ensure the password is secure
     volumes:
       - ${HOME_DIR}:/storage
