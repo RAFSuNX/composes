@@ -17,8 +17,6 @@ services:
     restart: always
     # ports:
     #   - "8080:80"
-    env_file:
-      - /home/ubuntu/docker/portainer/.env  # Pointing to your .env file
 
 networks:
   cloudflared:
