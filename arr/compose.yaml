@@ -1,0 +1,33 @@
+services:
+  prowlarr:
+    hostname: prowlarr
+    image: lscr.io/linuxserver/prowlarr:latest
+    environment:
+      - PUID=${UPUID}
+      - PGID=${UPGID}
+      - TZ=${TZ}
+    volumes:
+      - ${HOME_DIR}/docker/prowlarr/config:/config
+    networks:
+      cloudflared:
+        aliases:
+          - prowlarr
+    restart: unless-stopped
+
+  flaresolverr:
+    hostname: flaresolverr
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    environment:
+      - LOG_LEVEL=info
+      - LOG_HTML=false
+      - CAPTCHA_SOLVER=none
+      - TZ=${TZ}
+    networks:
+      cloudflared:
+        aliases:
+          - flaresolverr
+    restart: unless-stopped
+
+networks:
+  cloudflared:
+    external: true
