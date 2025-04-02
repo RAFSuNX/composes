@@ -9,7 +9,6 @@ services:
     volumes:
       - ${HOME_DIR}:/srv
       - ${HOME_DIR}/docker/filebrowser/database.db:/database.db
-      - ${HOME_DIR}/docker/filebrowser/.filebrowser.json:/.filebrowser.json
     networks:
       cloudflared:
         aliases:
