@@ -4,12 +4,14 @@ services:
     image: portainer/portainer-ce:lts
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./portainer_data:/data
+      - ${HOME_DIR}/docker/portainer/config:/data
     networks:
       cloudflared:
         aliases:
           - portainer
     restart: always
+    environment:
+      TZ: ${TZ}
     # ports:
     #   - "8000:8000"
     #   - "9443:9443"
@@ -17,12 +19,14 @@ services:
   cloudflared:
     hostname: cloudflared
     image: cloudflare/cloudflared:latest
-    command: tunnel --no-autoupdate run --token <cloudflaretokenhere>
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARED_TOKEN}
     networks:
       cloudflared:
         aliases:
           - cloudflared
     restart: always
+    environment:
+      TZ: ${TZ}
 
 networks:
   cloudflared:
