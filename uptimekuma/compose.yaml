@@ -1,0 +1,20 @@
+services:
+  uptimekuma:
+    hostname: uptimekuma
+    image: louislam/uptime-kuma:latest
+    environment:
+      - TZ=${TZ}
+    volumes:
+      - ${HOME_DIR}/docker/uptimekuma:/app/data
+    # ports:
+    #   - "3001:3001"
+    restart: unless-stopped
+    networks:
+      cloudflared:
+        aliases:
+          - uptimekuma
+    privileged: true
+
+networks:
+  cloudflared:
+    external: true
