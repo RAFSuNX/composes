@@ -1,14 +1,14 @@
 services:
   filebrowser:
     hostname: filebrowser
-    image: filebrowser/filebrowser:s6
+    image: filebrowser/filebrowser:latest
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/New_York
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
     volumes:
-      - /home/ubuntu/:/srv
-      - /home/ubuntu/portainer/filebrowser/config:/config
+      - ${HOME_DIR}:/srv
+      - ${HOME_DIR}/docker/filebrowser/database.db:/database.db
     networks:
       cloudflared:
         aliases:
