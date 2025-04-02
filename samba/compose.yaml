@@ -2,7 +2,6 @@ services:
   samba:
     hostname: samba
     image: dockurr/samba:latest
-    user: "${PUID}:${PGID}"
     environment:
       - GID=${UPGID}
       - UID=${UPUID}
