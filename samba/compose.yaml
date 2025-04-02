@@ -5,14 +5,14 @@ services:
     user: "${PUID}:${PGID}"
     environment:
       - GID=${PGID}
-      - NAME=${SAMBA_NAME}
-      - USER=${SAMBA_USER}
-      - PASS=${SAMBA_PASS}  # Ensure the password is secure
+      - NAME=Home
+      - USER=${USER}
+      - PASS=${PASSWORD}  # Ensure the password is secure
     volumes:
       - ${HOME_DIR}:/storage
     networks:
       cloudflared:
-        ipv4_address: 10.7.0.100  # Assigning a static IP from the cloudflared network
+        ipv4_address: 10.7.0.100  # Assigning a static IP from the cloudflared 10.7.0.0/24 network
     restart: on-failure
 
 networks:
