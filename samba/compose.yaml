@@ -5,6 +5,7 @@ services:
     user: "${PUID}:${PGID}"
     environment:
       - GID=${UPGID}
+      - UID=${UPUID}
       - NAME=Home
       - USER=${SAMBA_USER}
       - PASS=${PASSWORD}  # Ensure the password is secure
