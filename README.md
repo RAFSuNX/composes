@@ -1,9 +1,3 @@
-these are my personal docker composes.
-
-if you use remember to update files acordingly. 
-
-al my composes following this format 
-
 ```
 
 version: "3.8"
