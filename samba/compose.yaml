@@ -4,7 +4,7 @@ services:
     image: dockurr/samba:latest
     user: "${PUID}:${PGID}"
     environment:
-      - GID=${PGID}
+      - GID=${UPGID}
       - NAME=Home
       - USER=${SAMBA_USER}
       - PASS=${PASSWORD}  # Ensure the password is secure
