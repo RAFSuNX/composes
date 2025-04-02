@@ -1,0 +1,21 @@
+services:
+  transfer:
+    hostname: transfersh
+    image: dutchcoders/transfer.sh:latest
+    environment:
+      - TZ=${TZ}
+    volumes:
+      - transfer_data:/tmp/
+    networks:
+      cloudflared:
+        aliases:
+          - transfersh
+    command: --provider local --basedir /tmp/
+    restart: on-failure
+
+volumes:
+  transfer_data:
+
+networks:
+  cloudflared:
+    external: true
