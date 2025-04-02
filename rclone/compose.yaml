@@ -2,7 +2,7 @@ services:
   rclone:
     image: rclone/rclone:latest
     hostname: rclone
-    command: sync ./docker/ docker_backup:/docker_backup --progress --links
+    command: sync /data docker_backup:/docker_backup --progress --links
     volumes:
       - ${HOME_DIR}/docker:/data
       - ${HOME_DIR}/.config/rclone:/config/rclone
