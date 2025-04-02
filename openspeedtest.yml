@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   speedtest:
     hostname: speedtest
@@ -8,7 +6,7 @@ services:
       cloudflared:
         aliases:
           - speedtest
-    restart: on-failure  
+    restart: on-failure
     # ports:
     #   - "3000:3000"
     #   - "3001:3001"

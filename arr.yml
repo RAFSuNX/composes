@@ -1,0 +1,40 @@
+services:
+  prowlarr:
+    hostname: prowlarr
+    image: lscr.io/linuxserver/prowlarr:latest
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Etc/UTC
+    volumes:
+      - /home/ubuntu/portainer/prowlarr:/config
+    networks:
+      cloudflared:
+        aliases:
+          - prowlarr
+    restart: unless-stopped
+    # ports:
+    #   - "9696:9696"
+
+
+  flaresolverr:
+    hostname: flaresolverr
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    environment:
+      - LOG_LEVEL=info
+      - LOG_HTML=false
+      - CAPTCHA_SOLVER=none
+      - TZ=Asia/Dhaka
+
+    networks:
+      cloudflared:
+        aliases:
+          - flaresolverr
+    restart: unless-stopped
+    # ports:
+    #   - "8191:8191"
+
+
+networks:
+  cloudflared:
+    external: true

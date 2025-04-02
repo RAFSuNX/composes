@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   portainer:
     hostname: portainer
@@ -28,6 +26,4 @@ services:
 
 networks:
   cloudflared:
-    ipam:
-      config:
-        - subnet: 10.7.0.0/16
+    external: true
