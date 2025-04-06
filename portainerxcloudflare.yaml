@@ -1,21 +1,19 @@
+version: '3.8'
+
 services:
   portainer:
     image: portainer/portainer-ce:lts
     hostname: portainer
     restart: always
-
     environment:
       TZ: ${TZ}
-    
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${HOME_DIR}/docker/portainer/config:/data
-
     networks:
       cloudflared:
         aliases:
           - portainer
-
     # ports:
     #   - "8000:8000"
     #   - "9443:9443"
@@ -24,11 +22,9 @@ services:
     image: cloudflare/cloudflared:latest
     hostname: cloudflared
     restart: always
-    
     command: tunnel --no-autoupdate run --token ${CLOUDFLARED_TOKEN}
     environment:
       TZ: ${TZ}
-
     networks:
       cloudflared:
         aliases:
