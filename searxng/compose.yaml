@@ -2,7 +2,6 @@ services:
   searxng:
     image: docker.io/searxng/searxng:latest
     hostname: searxng
-    container_name: searxng
     environment:
       SEARXNG_BASE_URL: ${SEARXNG_BASE_URL}
     volumes:
