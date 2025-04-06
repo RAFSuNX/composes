@@ -1,11 +1,11 @@
 services:
   prowlarr:
-    hostname: prowlarr
     image: lscr.io/linuxserver/prowlarr:latest
+    hostname: prowlarr
     environment:
-      - PUID=${UPUID}
-      - PGID=${UPGID}
-      - TZ=${TZ}
+      PUID: ${UPUID}
+      PGID: ${UPGID}
+      TZ: ${TZ}
     volumes:
       - ${HOME_DIR}/docker/prowlarr/config:/config
     networks:
@@ -13,20 +13,24 @@ services:
         aliases:
           - prowlarr
     restart: unless-stopped
+    # ports:
+    #   - "9696:9696"
 
   flaresolverr:
-    hostname: flaresolverr
     image: ghcr.io/flaresolverr/flaresolverr:latest
+    hostname: flaresolverr
     environment:
-      - LOG_LEVEL=info
-      - LOG_HTML=false
-      - CAPTCHA_SOLVER=none
-      - TZ=${TZ}
+      LOG_LEVEL: "info"
+      LOG_HTML: "false"
+      CAPTCHA_SOLVER: "none"
+      TZ: ${TZ}
     networks:
       cloudflared:
         aliases:
           - flaresolverr
     restart: unless-stopped
+    # ports:
+    #   - "8191:8191"
 
 networks:
   cloudflared:
