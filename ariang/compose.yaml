@@ -3,8 +3,8 @@ services:
     hostname: ariang
     image: wahyd4/aria2-ui:6.0.1
     environment:
-      - PGID=${PGID}
-      - PUID=${PUID}
+      - PGID=${UPGID}
+      - PUID=${UPUID}
       - ENABLE_AUTH=true
       - ARIA2_EXTERNAL_PORT=443
       - ARIA2_SSL=false
