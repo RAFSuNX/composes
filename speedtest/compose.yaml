@@ -1,7 +1,7 @@
 services:
   speedtest:
-    hostname: speedtest
     image: openspeedtest/latest
+    hostname: speedtest
     networks:
       cloudflared:
         aliases:
