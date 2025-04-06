@@ -1,18 +1,18 @@
 services:
   samba:
-    hostname: samba
     image: dockurr/samba:latest
+    hostname: samba
     environment:
-      - GID=${UPGID}
-      - UID=${UPUID}
-      - NAME=Home
-      - USER=${SAMBA_USER}
-      - PASS=${PASSWORD}  # Ensure the password is secure
+      GID: ${UPGID}
+      UID: ${UPUID}
+      NAME: "Home"
+      USER: ${SAMBA_USER}
+      PASS: ${PASSWORD}
     volumes:
       - ${HOME_DIR}:/storage
     networks:
       cloudflared:
-        ipv4_address: 10.7.0.100  # Assigning a static IP from the cloudflared 10.7.0.0/24 network
+        ipv4_address: 10.7.0.100
     restart: on-failure
 
 networks:
