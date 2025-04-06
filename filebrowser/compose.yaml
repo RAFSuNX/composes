@@ -1,11 +1,11 @@
 services:
   filebrowser:
-    hostname: filebrowser
     image: filebrowser/filebrowser:latest
+    hostname: filebrowser
     environment:
-      - PUID=${UPUID}
-      - PGID=${UPGID}
-      - TZ=${TZ}
+      PUID: ${UPUID}
+      PGID: ${UPGID}
+      TZ: ${TZ}
     volumes:
       - ${HOME_DIR}:/srv
       - ${HOME_DIR}/docker/filebrowser/database.db:/database.db
