@@ -1,19 +1,19 @@
 services:
   ariang:
-    hostname: ariang
     image: wahyd4/aria2-ui:6.0.1
+    hostname: ariang
     environment:
-      - PGID=${UPGID}
-      - PUID=${UPUID}
-      - ENABLE_AUTH=true
-      - ARIA2_EXTERNAL_PORT=443
-      - ARIA2_SSL=false
-      - ENABLE_FILEBROWSER=false
-      - ENABLE_RCLONE=false
-      - CADDY_LOG_LEVEL=ERROR
-      - RPC_SECRET=${PASSWORD}
-      - ARIA2_USER=${USER}
-      - ARIA2_PWD=${PASSWORD}
+      PGID: ${UPGID}
+      PUID: ${UPUID}
+      ENABLE_AUTH: "true"
+      ARIA2_EXTERNAL_PORT: "443"
+      ARIA2_SSL: "false"
+      ENABLE_FILEBROWSER: "false"
+      ENABLE_RCLONE: "false"
+      CADDY_LOG_LEVEL: "ERROR"
+      RPC_SECRET: ${PASSWORD}
+      ARIA2_USER: ${USER}
+      ARIA2_PWD: ${PASSWORD}
     volumes:
       - ${HOME_DIR}/Downloads:/data
     networks:
