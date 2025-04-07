@@ -1,23 +1,25 @@
 services:
   db:
-    hostname: db
     image: mysql:8.0
-    volumes:
-      - ${HOME_DIR}/docker/wordpress/db:/var/lib/mysql
+    hostname: db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - ${HOME_DIR}/docker/wordpress/db:/var/lib/mysql
     networks:
       cloudflared:
         aliases:
           - db
+    # ports:
+    #   - "3306:3306"
 
   wordpress:
-    hostname: wordpress
     image: wordpress:latest
+    hostname: wordpress
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
@@ -29,6 +31,8 @@ services:
       cloudflared:
         aliases:
           - wordpress
+    # ports:
+    #   - "8080:80"
 
 networks:
   cloudflared:
