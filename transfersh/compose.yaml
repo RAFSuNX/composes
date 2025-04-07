@@ -2,6 +2,7 @@ services:
   transfer:
     image: dutchcoders/transfer.sh:latest
     hostname: transfersh
+    restart: on-failure
     command: --provider local --basedir /tmp/
     environment:
       TZ: ${TZ}
@@ -11,7 +12,6 @@ services:
       cloudflared:
         aliases:
           - transfersh
-    restart: on-failure
 
 volumes:
   transfer_data:
