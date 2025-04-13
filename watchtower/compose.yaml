@@ -1,0 +1,15 @@
+services:
+  watchtower:
+    image: containrrr/watchtower
+    hostname: watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      cloudflared:
+        aliases:
+          - watchtower
+
+networks:
+  cloudflared:
+    external: true
