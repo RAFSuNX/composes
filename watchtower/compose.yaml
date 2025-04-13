@@ -3,6 +3,10 @@ services:
     image: containrrr/watchtower
     hostname: watchtower
     restart: always
+    command: --cleanup --label-enable --interval 86400
+    environment:
+      - WATCHTOWER_NOTIFICATIONS="WatchTower"
+      - WATCHTOWER_NOTIFICATION_URL="telegram://${TELEGRAM_TOKEN}@telegram?chats=${TELEGRAM_CHAT_ID}"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
