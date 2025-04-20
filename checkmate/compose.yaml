@@ -1,0 +1,72 @@
+services:
+  client:
+    image: bluewaveuptime/uptime_client:latest
+    hostname: checkmate
+    restart: always
+    environment:
+      UPTIME_APP_API_BASE_URL: "http://server:5000/api/v1"
+    networks:
+      cloudflared:
+        aliases:
+          - client
+    depends_on:
+      - server
+    # ports:
+    #   - "80:80"
+    #   - "443:443"
+
+  server:
+    image: bluewaveuptime/uptime_server:latest
+    hostname: server
+    restart: always
+    environment:
+      - DB_CONNECTION_STRING=mongodb://mongodb:27017/uptime_db
+      - REDIS_HOST=redis
+    networks:
+      cloudflared:
+        aliases:
+          - server
+    depends_on:
+      - redis
+      - mongodb
+    # ports:
+    #   - "5000:5000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  redis:
+    image: bluewaveuptime/uptime_redis:latest
+    hostname: redis
+    restart: always
+    volumes:
+      - ${HOME_DIR}/docker/checkmate/redis/data:/data
+    networks:
+      cloudflared:
+        aliases:
+          - redis
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 5s
+    # ports:
+    #   - "6379:6379"
+
+  mongodb:
+    image: bluewaveuptime/uptime_database_mongo:latest
+    hostname: mongodb
+    restart: always
+    command: ["mongod", "--quiet"]
+    volumes:
+      - ${HOME_DIR}/docker/checkmate/mongodb/data:/data/db
+    networks:
+      cloudflared:
+        aliases:
+          - mongodb
+    # ports:
+    #   - "27017:27017"
+
+networks:
+  cloudflared:
+    external: true
