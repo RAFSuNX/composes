@@ -12,7 +12,7 @@ services:
       WG_PORT: "51820"
     volumes:
       - ~/.wg-easy:/etc/wireguard
-      # - /lib/modules:/lib/modules  # Kernel module mount (uncomment if needed)
+      - /lib/modules:/lib/modules  # Kernel module mount (uncomment if needed)
     ports:
       - "51820:51820/udp"
       # - "51821:51821/tcp"  # Web UI port (uncomment if needed)
