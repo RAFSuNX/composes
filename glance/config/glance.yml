@@ -9,13 +9,13 @@ pages:
             first-day-of-week: friday
           - type: markets
             markets:
-              - symbol: XAUUSD
+              - symbol: XAUUSD=X
                 name: Gold
                 chart-link: https://www.tradingview.com/chart/?symbol=OANDA:XAUUSD
-              - symbol: GBPJPY
+              - symbol: GBPJPY=X
                 name: British Pound / Japanese Yen
                 chart-link: https://www.tradingview.com/chart/?symbol=OANDA:GBPJPY
-              - symbol: EURJPY
+              - symbol: EURJPY=X
                 name: Euro / Japanese Yen
                 chart-link: https://www.tradingview.com/chart/?symbol=OANDA:EURJPY
 
