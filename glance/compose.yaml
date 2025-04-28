@@ -4,7 +4,7 @@ services:
     hostname: glance
     restart: unless-stopped
     volumes:
-      - ./config:/app/config
+      - ${HOME_DIR}/docker/portainer/config/compose/1/glance/config:/app/config
     networks:
       cloudflared:
         aliases:
