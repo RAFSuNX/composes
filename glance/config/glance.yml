@@ -5,6 +5,12 @@ pages:
     columns:
       - size: small
         widgets:
+          - type: weather
+            location: Dhaka, Bangladesh
+            units: metric # alternatively "imperial"
+            hour-format: 12h # alternatively "24h"
+            # Optionally hide the location from being displayed in the widget
+            # hide-location: true
           - type: calendar
             first-day-of-week: friday
           - type: markets
@@ -32,12 +38,11 @@ pages:
 
       - size: small
         widgets:
-          - type: weather
-            location: Dhaka, Bangladesh
-            units: metric # alternatively "imperial"
-            hour-format: 12h # alternatively "24h"
-            # Optionally hide the location from being displayed in the widget
-            # hide-location: true
+          - type: server-stats
+            servers:
+              - type: local
+                name: sapphire
+
 
 
 
