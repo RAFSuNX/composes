@@ -2,6 +2,7 @@ services:
   speedtest:
     image: openspeedtest/latest
     hostname: speedtest
+    container_name: SpeedTest
     networks:
       cloudflared:
         aliases:
