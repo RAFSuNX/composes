@@ -1,5 +1,5 @@
 pages:
-  - name: Home
+  - name: RAFSuNX
     # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
     hide-desktop-navigation: true
     columns:
@@ -7,7 +7,18 @@ pages:
         widgets:
           - type: calendar
             first-day-of-week: friday
-
+          - type: markets
+            markets:
+              - symbol: SPY
+                name: S&P 500
+              - symbol: BTC-USD
+                name: Bitcoin
+              - symbol: NVDA
+                name: NVIDIA
+              - symbol: AAPL
+                name: Apple
+              - symbol: MSFT
+                name: Microsoft
 
       - size: full
         widgets:
@@ -29,18 +40,7 @@ pages:
             # Optionally hide the location from being displayed in the widget
             # hide-location: true
 
-          - type: markets
-            markets:
-              - symbol: SPY
-                name: S&P 500
-              - symbol: BTC-USD
-                name: Bitcoin
-              - symbol: NVDA
-                name: NVIDIA
-              - symbol: AAPL
-                name: Apple
-              - symbol: MSFT
-                name: Microsoft
+
 
           - type: releases
             cache: 1d
