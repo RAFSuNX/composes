@@ -2,6 +2,7 @@ services:
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:latest
     hostname: prowlarr
+    container_name: Prowlarr
     environment:
       PUID: ${UPUID}
       PGID: ${UPGID}
@@ -19,6 +20,7 @@ services:
   flaresolverr:
     image: ghcr.io/flaresolverr/flaresolverr:latest
     hostname: flaresolverr
+    container_name: FlareSolverr
     environment:
       LOG_LEVEL: "info"
       LOG_HTML: "false"
