@@ -9,11 +9,11 @@ pages:
             first-day-of-week: friday
           - type: markets
             markets:
-              - symbol: XAU-USD
+              - symbol: XAUUSD
                 name: Gold
-              - symbol: GBPJPY=X
+              - symbol: GBPJPY
                 name: British Pound / Japanese Yen
-              - symbol: EURJPY=X
+              - symbol: EURJPY
                 name: Euro / Japanese Yen
 
       - size: full
