@@ -38,9 +38,14 @@ pages:
             widgets:
               - type: calendar
           - type: clock
-            hour-format: 12h
-            timezones: Asia/Dhaka
-            label: Dhaka
+            hour-format: 24h
+            timezones:
+              - timezone: Europe/Paris
+                label: Paris
+              - timezone: America/New_York
+                label: New York
+              - timezone: Asia/Dhaka
+                label: Dhaka
           - type: search
             search-engine: google
 
