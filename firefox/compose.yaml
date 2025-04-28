@@ -2,6 +2,7 @@ services:
   firefox:
     image: jlesage/firefox:latest
     hostname: firefox
+    container_name: FireFox
     environment:
       VNC_LISTENING_PORT: "5900"
       VNC_PASSWORD: ${PASSWORD}
