@@ -9,16 +9,12 @@ pages:
             first-day-of-week: friday
           - type: markets
             markets:
-              - symbol: SPY
-                name: S&P 500
-              - symbol: BTC-USD
-                name: Bitcoin
-              - symbol: NVDA
-                name: NVIDIA
-              - symbol: AAPL
-                name: Apple
-              - symbol: MSFT
-                name: Microsoft
+              - symbol: XAU-USD
+                name: Gold
+              - symbol: GBPJPY=X
+                name: British Pound / Japanese Yen
+              - symbol: EURJPY=X
+                name: Euro / Japanese Yen
 
       - size: full
         widgets:
