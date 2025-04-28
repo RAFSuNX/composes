@@ -1,0 +1,17 @@
+services:
+  glance:
+    image: glanceapp/glance:latest
+    hostname: glance
+    restart: unless-stopped
+    volumes:
+      - ./config:/app/config
+    networks:
+      cloudflared:
+        aliases:
+          - glance
+    # ports:
+    #   - "8080:8080"
+
+networks:
+  cloudflared:
+    external: true
