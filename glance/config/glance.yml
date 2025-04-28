@@ -37,7 +37,6 @@ pages:
           - type: group
             widgets:
               - type: calendar
-              - type: time
           - type: clock
             hour-format: 12h
             timezones: Asia/Dhaka
