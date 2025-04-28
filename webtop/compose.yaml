@@ -2,6 +2,7 @@ services:
   webtop:
     image: lscr.io/linuxserver/webtop:debian-xfce
     hostname: webtop
+    container_name: WebTop
     restart: unless-stopped
     environment:
       PUID: ${UPUID}
