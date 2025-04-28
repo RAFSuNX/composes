@@ -34,14 +34,13 @@ pages:
                 label: Dhaka
           - type: search
             search-engine: google
-
-
-      - size: small
-        widgets:
           - type: server-stats
             servers:
               - type: local
                 name: sapphire
+
+      - size: small
+        widgets:
           - type: monitor
             cache: 1m
             title: uptime
