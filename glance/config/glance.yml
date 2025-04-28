@@ -11,10 +11,13 @@ pages:
             markets:
               - symbol: XAUUSD
                 name: Gold
+                chart-link: https://www.tradingview.com/chart/?symbol=OANDA%3AXAUUSD
               - symbol: GBPJPY
                 name: British Pound / Japanese Yen
+                chart-link: https://www.tradingview.com/chart/?symbol=OANDA%3AXAUUSD
               - symbol: EURJPY
                 name: Euro / Japanese Yen
+                chart-link: https://www.tradingview.com/chart/?symbol=OANDA%3AXAUUSD
 
       - size: full
         widgets:
