@@ -9,8 +9,8 @@ pages:
             first-day-of-week: friday
           - type: markets
             markets:
-              - symbol: XAUUSD=X
-                name: Gold
+              - symbol: GC=F
+                name: Gold Future
                 chart-link: https://www.tradingview.com/chart/?symbol=OANDA:XAUUSD
               - symbol: GBPJPY=X
                 name: British Pound / Japanese Yen
