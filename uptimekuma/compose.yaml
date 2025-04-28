@@ -2,6 +2,7 @@ services:
   uptimekuma:
     image: louislam/uptime-kuma:latest
     hostname: uptimekuma
+    container_name: UptimeKuma
     restart: unless-stopped
     environment:
       TZ: ${TZ}
