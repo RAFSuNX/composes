@@ -2,6 +2,7 @@ services:
   watchtower:
     image: containrrr/watchtower
     hostname: watchtower
+    container_name: WatchTower
     restart: always
     command: --cleanup
     environment:
