@@ -23,6 +23,7 @@ services:
     # ports:
     #   - "80:80"
     #   - "443:443"
+    #   - "6881:6881"
 
 networks:
   cloudflared:
