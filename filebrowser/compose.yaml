@@ -2,9 +2,8 @@ services:
   filebrowser:
     image: filebrowser/filebrowser:latest
     hostname: filebrowser
+    user: "${UPUID}:${UPGID}"
     environment:
-      PUID: ${UPUID}
-      PGID: ${UPGID}
       TZ: ${TZ}
     volumes:
       - ${HOME_DIR}:/srv
