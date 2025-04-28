@@ -2,6 +2,7 @@ services:
   glance:
     image: glanceapp/glance:latest
     hostname: glance
+    container_name: Glance
     restart: unless-stopped
     volumes:
       - ${HOME_DIR}/docker/portainer/config/compose/13/glance/config:/app/config
