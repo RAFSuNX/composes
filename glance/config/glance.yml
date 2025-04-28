@@ -37,8 +37,13 @@ pages:
           - type: group
             widgets:
               - type: calendar
+              - type: time
+          - type: clock
+            hour-format: 12h
+            timezones: Asia/Dhaka
+            label: Dhaka
           - type: search
-            search-engine: duckduckgo
+            search-engine: google
 
           - type: videos
             channels:
