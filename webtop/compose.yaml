@@ -1,0 +1,25 @@
+services:
+  webtop:
+    image: lscr.io/linuxserver/webtop:ubuntu-xfce
+    hostname: webtop
+    restart: unless-stopped
+    environment:
+      PUID: ${UPUID}
+      PGID: ${UPGID}
+      TZ: ${TZ}
+    volumes:
+      - ${HOME_DIR}/docker/webtop/:/config
+    security_opt:
+      - seccomp:unconfined
+    shm_size: "5g"
+    networks:
+      cloudflared:
+        aliases:
+          - webtop
+    # ports:
+    #   - "3000:3000"
+    #   - "3001:3001"
+
+networks:
+  cloudflared:
+    external: true
