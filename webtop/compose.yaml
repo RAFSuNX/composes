@@ -7,6 +7,8 @@ services:
       PUID: ${UPUID}
       PGID: ${UPGID}
       TZ: ${TZ}
+      CUSTOM_USER: ${USER}
+      PASSWORD: ${PASSWORD}
     volumes:
       - ${HOME_DIR}/docker/webtop/:/config
     security_opt:
