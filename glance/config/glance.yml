@@ -51,6 +51,8 @@ pages:
               - title: WebTop
                 url: https://webtop.rogx.cc
                 # icon: /assets/jellyfin-logo.png
+                alt-status-codes:
+                  - 403
               - title: RAFSuNX
                 url: https://rafsunx.com
                 # icon: /assets/jellyfin-logo.png
