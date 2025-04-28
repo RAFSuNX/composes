@@ -27,6 +27,9 @@ services:
       cloudflared:
         aliases:
           - cloudflared
+    # ports:
+    #   - "8191:8191"
+    #   - "8192:8192"
 
 networks:
   cloudflared:
