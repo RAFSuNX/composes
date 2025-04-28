@@ -48,6 +48,9 @@ pages:
               - title: Portainer
                 url: https://portainer.rogx.cc
                 # icon: /assets/jellyfin-logo.png
+              - title: WebTop
+                url: https://webtop.rogx.cc
+                # icon: /assets/jellyfin-logo.png
               - title: RAFSuNX
                 url: https://rafsunx.com
                 # icon: /assets/jellyfin-logo.png
