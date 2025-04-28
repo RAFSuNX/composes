@@ -42,10 +42,11 @@ pages:
             servers:
               - type: local
                 name: sapphire
-
+          - type: docker-containers
+            hide-by-default: false
           - type: monitor
             cache: 1m
-            title: Services
+            title: uptime
             sites:
               - title: RAFSuNX
                 url: https://rafsunx.com
