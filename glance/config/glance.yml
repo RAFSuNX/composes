@@ -36,8 +36,7 @@ pages:
         widgets:
           - type: group
             widgets:
-              - type: hacker-news
-              - type: lobsters
+              - type: calendar
 
           - type: videos
             channels:
@@ -46,15 +45,6 @@ pages:
               - UCsBjURrPoezykLs9EqgamOA # Fireship
               - UCBJycsmduvYEL83R_U4JriQ # Marques Brownlee
               - UCHnyfMqiRRG1u-2MsSQLbXA # Veritasium
-
-          - type: group
-            widgets:
-              - type: reddit
-                subreddit: technology
-                show-thumbnails: true
-              - type: reddit
-                subreddit: selfhosted
-                show-thumbnails: true
 
       - size: small
         widgets:
