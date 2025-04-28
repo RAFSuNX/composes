@@ -2,6 +2,7 @@ services:
   samba:
     image: dockurr/samba:latest
     hostname: samba
+    container_name: SMBshare
     environment:
       GID: ${UPGID}
       UID: ${UPUID}
