@@ -2,6 +2,7 @@ services:
   rclone:
     image: rclone/rclone:latest
     hostname: rclone
+    container_name: Rclone
     command: sync /data koofr:/docker_backup --progress --links
     volumes:
       - ${HOME_DIR}/docker:/data
