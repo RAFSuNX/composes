@@ -46,6 +46,9 @@ pages:
             cache: 1m
             title: uptime
             sites:
+              - title: Portainer
+                url: https://portainer.rogx.cc
+                # icon: /assets/jellyfin-logo.png
               - title: RAFSuNX
                 url: https://rafsunx.com
                 # icon: /assets/jellyfin-logo.png
