@@ -37,6 +37,8 @@ pages:
           - type: group
             widgets:
               - type: calendar
+          - type: search
+            search-engine: duckduckgo
 
           - type: videos
             channels:
