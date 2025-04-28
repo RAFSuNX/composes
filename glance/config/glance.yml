@@ -42,8 +42,6 @@ pages:
             servers:
               - type: local
                 name: sapphire
-          - type: docker-containers
-            hide-by-default: false
           - type: monitor
             cache: 1m
             title: uptime
@@ -60,3 +58,5 @@ pages:
               - title: SearXNG
                 url: https://searxng.rogx.cc
                 # icon: /assets/adguard-logo.png
+          - type: docker-containers
+            hide-by-default: false
