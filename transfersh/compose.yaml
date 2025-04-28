@@ -2,6 +2,7 @@ services:
   transfer:
     image: dutchcoders/transfer.sh:latest
     hostname: transfersh
+    container_name: TransferSH
     restart: on-failure
     command: --provider local --basedir /tmp/
     environment:
