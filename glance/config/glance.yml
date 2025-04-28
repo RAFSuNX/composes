@@ -49,13 +49,13 @@ pages:
             sites:
               - title: RAFSuNX
                 url: https://rafsunx.com
-                icon: /assets/jellyfin-logo.png
+                # icon: /assets/jellyfin-logo.png
               - title: ROGx
                 url: https://rogx.cc
-                icon: /assets/gitea-logo.png
+                # icon: /assets/gitea-logo.png
               - title: INFOiyo
                 url: https://infoiyo.cc
-                icon: /assets/immich-logo.png
+                # icon: /assets/immich-logo.png
               - title: SearXNG
                 url: https://searxng.rogx.cc
-                icon: /assets/adguard-logo.png
+                # icon: /assets/adguard-logo.png
