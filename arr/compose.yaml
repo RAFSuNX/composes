@@ -31,6 +31,7 @@ services:
     restart: unless-stopped
     # ports:
     #   - "8191:8191"
+    #   - "8192:8192"
 
 networks:
   cloudflared:
