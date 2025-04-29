@@ -4,7 +4,7 @@ theme:
   negative-color: 358 100 68
   contrast-multiplier: 1.2
 pages:
-  - name: RAFSuNX
+  - name: SAPPHIRE
     # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
     hide-desktop-navigation: true
     columns:
@@ -72,3 +72,9 @@ pages:
                 # icon: /assets/adguard-logo.png
           - type: docker-containers
             hide-by-default: false
+
+branding:
+  custom-footer: |
+    <p>Powered by <a href="https://github.com/rafsunx/">RAFSuNX</a></p>
+  # logo-url: /assets/logo.png
+  # favicon-url: /assets/logo.png
