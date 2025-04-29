@@ -45,11 +45,6 @@ pages:
 
       - size: small
         widgets:
-          - type: dns-stats
-            service: adguard
-            url: https:/7bb6d57c.d.adguard-dns.com/
-          #  username: admin
-           $ password: ${ADGUARD_PASSWORD}
           - type: monitor
             cache: 1m
             title: uptime
