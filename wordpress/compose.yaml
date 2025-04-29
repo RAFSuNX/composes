@@ -27,6 +27,7 @@ services:
       WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
     volumes:
       - ${HOME_DIR}/docker/wordpress/wordpress:/var/www/html
+      - ${HOME_DIR}/docker/wordpress/php.ini:/usr/local/etc/php/conf.d/custom.ini
     networks:
       cloudflared:
         aliases:
