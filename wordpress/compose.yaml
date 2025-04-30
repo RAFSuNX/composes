@@ -2,6 +2,7 @@ services:
   db:
     image: mysql:8.0
     hostname: db
+    container_name: MySQL
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -20,6 +21,7 @@ services:
   wordpress:
     image: wordpress:latest
     hostname: wordpress
+    container_name: WordPress
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
