@@ -1,8 +1,3 @@
-# auth:
-#   secret-key: # this must be set to a random value generated using the secret:make CLI command
-#   users:
-#     admin: ${USER}
-#       password: ${PASSWORD}
 theme:
   background-color: 240 13 14
   primary-color: 51 33 68
