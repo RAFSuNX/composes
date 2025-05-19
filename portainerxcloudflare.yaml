@@ -20,7 +20,7 @@ services:
   cloudflared:
     image: cloudflare/cloudflared:latest
     hostname: cloudflared
-    container_name: CloudFlare
+    container_name: CloudFlareD
     restart: always
     command: tunnel --no-autoupdate run --token ${CLOUDFLARED_TOKEN}
     environment:
