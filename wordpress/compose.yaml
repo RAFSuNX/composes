@@ -37,6 +37,21 @@ services:
     # ports:
     #   - "8080:80"
 
+  phpmyadmin:
+    image: phpmyadmin:latest
+    hostname: phpmyadmin
+    container_name: phpMyAdmin
+    restart: always
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    networks:
+      cloudflared:
+        aliases:
+          - phpmyadmin
+    # ports:
+    #   - "8081:80"
+
 networks:
   cloudflared:
     external: true
