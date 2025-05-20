@@ -6,8 +6,8 @@ services:
     environment:
       SEARXNG_BASE_URL: ${SEARXNG_BASE_URL}
       SEARXNG_REDIS_URL: redis://redis:6379/0
-      PUID: 1000
-      PGID: 1000
+      PUID: ${UPUID}
+      PGID: ${UPGID}
     volumes:
       - ${HOME_DIR}/docker/searxng:/etc/searxng
       - type: tmpfs
@@ -42,9 +42,6 @@ services:
           - redis
     # ports:
     #   - "6379:6379"
-
-volumes:
-  searxng_data:
 
 networks:
   cloudflared:
