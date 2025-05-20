@@ -5,12 +5,17 @@ services:
     container_name: SearXNG
     environment:
       SEARXNG_BASE_URL: ${SEARXNG_BASE_URL}
+      SEARXNG_REDIS_URL: redis://redis:6379/0
     volumes:
       - searxng_data:/etc/searxng
+      - type: tmpfs
+        target: /tmp
     networks:
       cloudflared:
         aliases:
           - searxng
+    dns:
+      - dnsmasq  # override DNS resolver
     cap_drop:
       - ALL
     cap_add:
@@ -23,6 +28,35 @@ services:
         max-size: 10m
         max-file: "5"
     restart: on-failure
+    # ports:
+    #   - "8888:8888"
+
+  redis:
+    image: redis:alpine
+    hostname: redis
+    container_name: Redis
+    restart: always
+    networks:
+      cloudflared:
+        aliases:
+          - redis
+    # ports:
+    #   - "6379:6379"
+
+  dnsmasq:
+    image: jpillora/dnsmasq
+    hostname: dnsmasq
+    container_name: DNSCache
+    restart: always
+    networks:
+      cloudflared:
+        aliases:
+          - dnsmasq
+    environment:
+      - DNSMASQ_USER=root
+    command: -A / -d -q
+    # ports:
+    #   - "53:53/udp"
 
 volumes:
   searxng_data:
