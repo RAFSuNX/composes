@@ -3,11 +3,10 @@ services:
     image: docker.io/searxng/searxng:latest
     hostname: searxng
     container_name: SearXNG
+    user: "${UPUID}:${UPGID}"
     environment:
       SEARXNG_BASE_URL: ${SEARXNG_BASE_URL}
       SEARXNG_REDIS_URL: redis://redis:6379/0
-      PUID: ${UPUID}
-      PGID: ${UPGID}
     volumes:
       - ${HOME_DIR}/docker/searxng:/etc/searxng
       # - type: tmpfs
