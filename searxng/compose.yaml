@@ -7,7 +7,7 @@ services:
       SEARXNG_BASE_URL: ${SEARXNG_BASE_URL}
       SEARXNG_REDIS_URL: redis://redis:6379/0
     volumes:
-      - searxng_data:/etc/searxng
+      - ${HOME_DIR}/docker/searxng:/etc/searxng:ro
       - type: tmpfs
         target: /tmp
     networks:
