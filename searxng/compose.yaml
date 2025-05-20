@@ -9,9 +9,9 @@ services:
       PUID: ${UPUID}
       PGID: ${UPGID}
     volumes:
-      - ${HOME_DIR}/docker/searxng:/etc/searxng:rw
-      - type: tmpfs
-        target: /tmp
+      - ${HOME_DIR}/docker/searxng:/etc/searxng
+      # - type: tmpfs
+      #   target: /tmp
     networks:
       cloudflared:
         aliases:
