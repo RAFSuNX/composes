@@ -6,6 +6,8 @@ services:
     environment:
       SEARXNG_BASE_URL: ${SEARXNG_BASE_URL}
       SEARXNG_REDIS_URL: redis://redis:6379/0
+      PUID: 1000
+      PGID: 1000
     volumes:
       - ${HOME_DIR}/docker/searxng:/etc/searxng
       - type: tmpfs
@@ -27,7 +29,7 @@ services:
         max-file: "5"
     restart: on-failure
     # ports:
-    #   - "8888:8888"
+    #   - "8080:8080"
 
   redis:
     image: redis:alpine
