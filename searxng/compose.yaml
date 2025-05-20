@@ -3,7 +3,7 @@ services:
     image: docker.io/searxng/searxng:latest
     hostname: searxng
     container_name: SearXNG
-    user: "${UPUID}:${UPGID}"
+    user: "${PUID}:${PGID}"
     environment:
       SEARXNG_BASE_URL: ${SEARXNG_BASE_URL}
       SEARXNG_REDIS_URL: redis://redis:6379/0
