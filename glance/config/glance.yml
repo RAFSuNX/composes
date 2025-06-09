@@ -1,33 +1,35 @@
 theme:
-  background-color: 240 13 14
-  primary-color: 51 33 68
-  negative-color: 358 100 68
-  contrast-multiplier: 1.2
+  background-color: 240 13 14          # Deep red background (custom HSL)
+  primary-color: 51 33 68              # Rich violet for accents
+  negative-color: 358 100 68           # Warning/danger hue (reddish tone)
+  contrast-multiplier: 1.2             # Slightly enhanced contrast for visibility
+
 pages:
   - name: SAPPHIRE
-    # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
-    hide-desktop-navigation: true
+    hide-desktop-navigation: true      # Single page mode; clean UI
+
     columns:
       - size: small
         widgets:
           - type: weather
             location: Dhaka, Bangladesh
-            units: metric # alternatively "imperial"
-            hour-format: 12h # alternatively "24h"
-            # Optionally hide the location from being displayed in the widget
+            units: metric
+            hour-format: 12h
             # hide-location: true
+
           - type: calendar
             first-day-of-week: friday
+
           - type: markets
             markets:
               - symbol: GC=F
                 name: Gold Future
                 chart-link: https://www.tradingview.com/chart/?symbol=OANDA:XAUUSD
               - symbol: GBPJPY=X
-                name: British Pound / Japanese Yen
+                name: GBP / JPY
                 chart-link: https://www.tradingview.com/chart/?symbol=OANDA:GBPJPY
               - symbol: EURJPY=X
-                name: Euro / Japanese Yen
+                name: EUR / JPY
                 chart-link: https://www.tradingview.com/chart/?symbol=OANDA:EURJPY
 
       - size: full
@@ -37,8 +39,10 @@ pages:
             timezones:
               - timezone: Asia/Dhaka
                 label: Dhaka
+
           - type: search
             search-engine: google
+
           - type: server-stats
             servers:
               - type: local
@@ -47,29 +51,23 @@ pages:
       - size: small
         widgets:
           - type: monitor
+            title: Uptime
             cache: 1m
-            title: uptime
             sites:
               - title: Portainer
                 url: https://portainer.rogx.cc
-                # icon: /assets/jellyfin-logo.png
               - title: WebTop
                 url: https://webtop.rogx.cc
-                # icon: /assets/jellyfin-logo.png
-                alt-status-codes:
-                  - 401
+                alt-status-codes: [401]
               - title: RAFSuNX
                 url: https://rafsunx.com
-                # icon: /assets/jellyfin-logo.png
               - title: ROGx
                 url: https://rogx.cc
-                # icon: /assets/gitea-logo.png
               - title: INFOiyo
                 url: https://infoiyo.cc
-                # icon: /assets/immich-logo.png
               - title: SearXNG
                 url: https://searxng.rogx.cc
-                # icon: /assets/adguard-logo.png
+
           - type: docker-containers
             hide-by-default: false
 
