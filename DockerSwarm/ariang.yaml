@@ -16,7 +16,7 @@ services:
       ARIA2_PWD: ${PASSWORD}
     volumes:
       - ${HOME_DIR}/Downloads:/data
-      - ${HOME_DIR}/ariang:/app
+      - ${HOME_DIR}/docker_data/ariang:/app
     networks:
       - public
     deploy:
