@@ -7,7 +7,7 @@ services:
       PUID: ${UPUID}
       ENABLE_AUTH: "true"
       ARIA2_EXTERNAL_PORT: "443"
-      ARIA2_SSL: "false"
+      ARIA2_SSL: "true"
       ENABLE_FILEBROWSER: "false"
       ENABLE_RCLONE: "false"
       CADDY_LOG_LEVEL: "ERROR"
@@ -16,6 +16,7 @@ services:
       ARIA2_PWD: ${PASSWORD}
     volumes:
       - ${HOME_DIR}/Downloads:/data
+      - ${HOME_DIR}/ariang:/app
     networks:
       - public
     deploy:
