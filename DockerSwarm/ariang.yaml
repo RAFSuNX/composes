@@ -1,0 +1,60 @@
+services:
+  ariang:
+    image: wahyd4/aria2-ui:6.0.1
+    hostname: ariang
+    environment:
+      PGID: ${UPGID}
+      PUID: ${UPUID}
+      ENABLE_AUTH: "true"
+      ARIA2_EXTERNAL_PORT: "443"
+      ARIA2_SSL: "false"
+      ENABLE_FILEBROWSER: "false"
+      ENABLE_RCLONE: "false"
+      CADDY_LOG_LEVEL: "ERROR"
+      RPC_SECRET: ${PASSWORD}
+      ARIA2_USER: ${USER}
+      ARIA2_PWD: ${PASSWORD}
+    volumes:
+      - ${HOME_DIR}/Downloads:/data
+    networks:
+      - public
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: stop-first
+      rollback_config:
+        parallelism: 1
+        delay: 10s
+        order: stop-first
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    # ports:
+    #   - "80:80"
+    #   - "443:443"
+    #   - "6881:6881"
+
+networks:
+  public:
+    external: true
