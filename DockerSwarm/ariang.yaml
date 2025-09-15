@@ -1,24 +1,38 @@
+version: '3.8'
+
 services:
   ariang:
     image: wahyd4/aria2-ui:6.0.1
-    hostname: ariang
+    hostname: ariang-{{.Task.Slot}}
     environment:
-      PGID: ${UPGID}
       PUID: ${UPUID}
+      PGID: ${UPGID}
       ENABLE_AUTH: "true"
+      RPC_SECRET: ${PASSWORD}
+      DOMAIN: ${DOMAIN}
+      ARIA2_SSL: "false"
+      ARIA2_USER: ${USER}
+      ARIA2_PWD: ${PASSWORD}
       ARIA2_EXTERNAL_PORT: "443"
-      ARIA2_SSL: "true"
       ENABLE_FILEBROWSER: "false"
       ENABLE_RCLONE: "false"
       CADDY_LOG_LEVEL: "ERROR"
-      RPC_SECRET: ${PASSWORD}
-      ARIA2_USER: ${USER}
-      ARIA2_PWD: ${PASSWORD}
     volumes:
       - ${HOME_DIR}/Downloads:/data
-      - ${HOME_DIR}/docker_data/ariang:/app
+      - ${HOME_DIR}/docker_data/ariang/conf:/app/conf
+      - ${HOME_DIR}/docker_data/ariang/filebrowser.db:/app/filebrowser.db
+      - ${HOME_DIR}/docker_data/ariang/ssl:/app/conf/key
     networks:
       - public
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+        mode: ingress
+      - target: 443
+        published: 443
+        protocol: tcp
+        mode: ingress
     deploy:
       mode: replicated
       replicas: 1
@@ -27,13 +41,24 @@ services:
           - node.role == manager
       restart_policy:
         condition: on-failure
-        delay: 5s
-        max_attempts: 3
+        delay: 10s
+        max_attempts: 5
         window: 120s
-    # ports:
-    #   - "80:80"
-    #   - "443:443"
-    #   - "6881:6881"
+      update_config:
+        parallelism: 1
+        delay: 10s
+        order: stop-first
+      rollback_config:
+        parallelism: 1
+        delay: 10s
+        order: stop-first
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
 
 networks:
   public:
