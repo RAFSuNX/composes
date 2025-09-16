@@ -1,11 +1,11 @@
 services:
   ariang:
-    image: wahyd4/aria2-ui:6.0.1
-    hostname: ariang-{{.Task.Slot}}
+    image: wahyd4/aria2-ui:latest
+    hostname: ariang
     environment:
       PUID: ${UPUID}
       PGID: ${UPGID}
-      ENABLE_AUTH: "false"
+      ENABLE_AUTH: "true"
       RPC_SECRET: ${PASSWORD}
       DOMAIN: ${DOMAIN}
       ARIA2_SSL: "false"
