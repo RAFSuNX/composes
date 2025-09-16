@@ -17,7 +17,6 @@ services:
       CADDY_LOG_LEVEL: "ERROR"
     volumes:
       - ${HOME_DIR}/Downloads:/data
-      - ${HOME_DIR}/docker_data/ariang/conf:/app/conf
     networks:
       - public
     ports:
