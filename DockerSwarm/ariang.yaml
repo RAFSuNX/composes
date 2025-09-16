@@ -8,7 +8,7 @@ services:
       ENABLE_AUTH: "true"
       RPC_SECRET: ${PASSWORD}
       DOMAIN: ${DOMAIN}
-      ARIA2_SSL: "false"
+      ARIA2_SSL: "true"
       ARIA2_USER: ${USER}
       ARIA2_PWD: ${PASSWORD}
       ARIA2_EXTERNAL_PORT: "443"
